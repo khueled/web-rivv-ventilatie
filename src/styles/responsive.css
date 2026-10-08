@@ -20,14 +20,19 @@
     padding-top: 1.5rem;
   }
   .hero__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 0;
     gap: 2.5rem;
   }
-  .feed {
-    order: -1;
-    max-width: 280px;
-    width: calc(100% - 52px);
+  .hero__photo {
+    max-width: 560px;
+  }
+  .hero__photo img {
+    aspect-ratio: 4 / 3;
+  }
+  .check__grid {
+    gap: 1.75rem;
+    align-items: start;
   }
   .top__cta {
     display: none;
@@ -42,41 +47,23 @@
   .faq__item p {
     padding-right: 0;
   }
-  .feed__cap {
-    margin-top: 2rem;
-  }
   .hero__title {
     max-width: 14ch;
   }
 
   .tunnel {
     min-height: 0;
-    align-items: end;
   }
   .tunnel__img {
     object-position: 62% 50%;
   }
   .tunnel::before {
     background:
-      linear-gradient(
-        to bottom,
-        var(--ink) 0%,
-        rgba(10, 12, 13, 0.1) 22%,
-        rgba(10, 12, 13, 0.55) 55%,
-        var(--ink) 100%
-      ),
-      repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.18) 0 1px,
-        transparent 1px 3px
-      );
+      linear-gradient(90deg, rgba(10, 12, 13, 0.92), rgba(10, 12, 13, 0.72)),
+      linear-gradient(0deg, var(--ink), transparent 45%);
   }
   .tunnel__in {
-    padding-top: 58vw;
-    padding-bottom: var(--sp-4);
-  }
-  .tunnel__osd {
-    top: 1.5rem;
+    padding-block: 3.5rem;
   }
 
   .log {
@@ -181,6 +168,10 @@
   }
   .hero__actions .btn {
     width: 100%;
+    min-width: 0;
+    padding-inline: 1rem;
+    white-space: normal;
+    text-align: center;
   }
   .offer {
     width: 100%;
@@ -208,24 +199,11 @@
   .svc__row--feature {
     padding: var(--sp-3);
   }
-  .lens__tag--voor {
-    left: 18%;
-  }
-  .lens__tag--na {
-    right: 18%;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .osd__rec i,
-  .tunnel__osd .osd__rec i {
-    animation: none;
-  }
-  .tunnel__img {
-    transform: scale(1.1);
   }
   *,
   *::before,

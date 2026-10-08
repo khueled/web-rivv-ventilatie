@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from '@playwright/test';
 import { readContent } from './content.js';
+import { readBusinessContent } from './business-content.js';
 
 const originalContent = JSON.parse(
   readFileSync(
@@ -9,7 +10,14 @@ const originalContent = JSON.parse(
   ),
 );
 
-test('preserves original content and loads every local asset', async ({
+const businessContent = JSON.parse(
+  readFileSync(
+    new URL('./fixtures/business-content.json', import.meta.url),
+    'utf8',
+  ),
+);
+
+test('preserves business copy and contact links and loads every local asset', async ({
   page,
 }) => {
   const errors = [];
@@ -28,7 +36,14 @@ test('preserves original content and loads every local asset', async ({
     'href',
     /\?text=/,
   );
-  expect(await page.evaluate(readContent)).toEqual(originalContent);
+  const content = await page.evaluate(readContent);
+  for (const key of ['title', 'language', 'metadata', 'structuredData']) {
+    expect(content[key]).toEqual(originalContent[key]);
+  }
+  expect(content.links.filter((link) => link.cta)).toEqual(
+    originalContent.links.filter((link) => link.cta),
+  );
+  expect(await page.evaluate(readBusinessContent)).toEqual(businessContent);
   for (const image of await page.locator('img').all()) {
     await image.scrollIntoViewIfNeeded();
     await expect
@@ -80,31 +95,108 @@ test('self-check updates its verdict and the encoded WhatsApp message', async ({
   ).not.toContain('Wat ik herken:');
 });
 
-test('sliders work with the keyboard and reduced motion stays static', async ({
+test('hero and background stay static while illustrations are clearly identified', async ({
+  page,
+}) => {
+  for (const reducedMotion of ['no-preference', 'reduce']) {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto('/');
+    await expect(page.locator('.ba__note')).toContainText(
+      "geen foto's van een Rivv-klus",
+    );
+    await expect(page.locator('.lens')).toHaveCount(2);
+    await expect(page.locator('[data-timecode], [data-zoom]')).toHaveCount(0);
+    await page.locator('#voor-na').scrollIntoViewIfNeeded();
+    for (const image of await page.locator('.hero img, .tunnel img').all()) {
+      await expect(image).toHaveCSS('transform', 'none');
+      await expect(image).toHaveCSS('animation-name', 'none');
+      await expect(image).toHaveCSS('mask-image', 'none');
+    }
+  }
+});
+
+test('circular comparisons sweep once and manual controls interrupt them', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const firstInput = page.locator('[data-lens] input').first();
+  await page.locator('.lens__view').first().scrollIntoViewIfNeeded();
+  await expect.poll(() => firstInput.inputValue()).not.toBe('50');
+  await expect(firstInput).toHaveValue('50', { timeout: 4000 });
+  for (const lens of await page.locator('[data-lens]').all()) {
+    const input = lens.locator('input');
+    const view = lens.locator('.lens__view');
+    await view.scrollIntoViewIfNeeded();
+    await expect(input).toBeEnabled();
+    await expect(view).toHaveCSS('border-radius', '50%');
+    await input.focus();
+    await input.press('Home');
+    await expect(input).toHaveValue('0');
+    await expect(view).toHaveCSS('--a', '0deg');
+    await input.press('End');
+    await expect(input).toHaveAttribute('aria-valuetext', '100% schoon beeld');
+    await expect(view).toHaveCSS('--a', '360deg');
+  }
+  await page.goto('/');
+  const lens = page.locator('[data-lens]').first();
+  const input = lens.locator('input');
+  await lens.locator('.lens__view').scrollIntoViewIfNeeded();
+  await expect.poll(() => input.inputValue()).not.toBe('50');
+  await input.focus();
+  await input.press('Home');
+  await page.locator('.hero').scrollIntoViewIfNeeded();
+  await lens.locator('.lens__view').scrollIntoViewIfNeeded();
+  await page.waitForTimeout(2300);
+  await expect(input).toHaveValue('0');
+  await expect(lens.locator('.lens__view')).toHaveCSS('--a', '0deg');
+});
+
+test('reduced motion keeps the comparison still and keyboard controls remain usable', async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   for (const lens of await page.locator('[data-lens]').all()) {
-    const slider = lens.locator('input[type="range"]');
-    await expect(slider).toHaveValue('180');
-    await slider.focus();
-    await slider.press('Home');
-    await expect(slider).toHaveValue('0');
-    await expect(lens.locator('.lens__view')).toHaveCSS('--a', '0deg');
-    await slider.press('End');
-    await expect(slider).toHaveValue('360');
-    await expect(lens.locator('.lens__view')).toHaveCSS('--a', '360deg');
+    const input = lens.locator('input');
+    await lens.locator('.lens__view').scrollIntoViewIfNeeded();
+    await expect(input).toHaveValue('50');
+    await input.focus();
+    await input.press('ArrowRight');
+    await expect(input).toHaveValue('51');
+    await expect(input).toHaveAttribute('aria-valuetext', '51% schoon beeld');
   }
-  expect(
-    await page
-      .locator('.feed__img')
-      .evaluate((image) => image.style.getPropertyValue('--zoom')),
-  ).toBe('');
-  await expect(page.locator('.osd__rec i').first()).toHaveCSS(
-    'animation-name',
-    'none',
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  const input = page.locator('[data-lens] input').first();
+  await page.locator('.lens__view').first().scrollIntoViewIfNeeded();
+  await expect.poll(() => input.inputValue()).not.toBe('50');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(input).toHaveValue('50');
+  await input.focus();
+  await input.press('End');
+  await expect(input).toHaveValue('100');
+});
+
+test('comparisons remain visible without JavaScript', async ({
+  browser,
+  baseURL,
+}) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.goto(baseURL);
+  await expect(page.locator('noscript p')).toContainText(
+    'Links zie je de vervuilde situatie',
   );
+  for (const lens of await page.locator('[data-lens]').all()) {
+    await expect(lens.locator('input')).toBeDisabled();
+    await expect(lens.locator('.lens__view')).toHaveCSS('--a', '180deg');
+    await expect(lens.locator('.lens__after')).toHaveCSS(
+      'mask-image',
+      /conic-gradient/,
+    );
+  }
+  await context.close();
 });
 
 test('FAQ, header, analytics, and the mobile dock keep working', async ({
@@ -133,7 +225,7 @@ test('FAQ, header, analytics, and the mobile dock keep working', async ({
     cta: 'hero-bel',
     type: 'bellen',
   });
-  if (testInfo.project.name === 'mobile')
+  if (testInfo.project.name !== 'desktop')
     await expect(page.locator('.dock')).toBeVisible();
   else await expect(page.locator('.dock')).toBeHidden();
   expect(
@@ -143,25 +235,32 @@ test('FAQ, header, analytics, and the mobile dock keep working', async ({
   ).toBe(true);
 });
 
-test('camera motion and automatic brush reveal still run', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'no-preference' });
+test('self-check is balanced and section spacing is compact', async ({
+  page,
+}, testInfo) => {
   await page.goto('/');
-  const image = page.locator('.feed__img');
-  const initialZoom = Number(
-    await image.evaluate((element) => element.style.getPropertyValue('--zoom')),
-  );
-  await page.locator('#waarom').scrollIntoViewIfNeeded();
-  await expect
-    .poll(() =>
-      image.evaluate((element) =>
-        Number(element.style.getPropertyValue('--zoom')),
-      ),
-    )
-    .toBeGreaterThan(initialZoom);
-  for (const lens of await page.locator('[data-lens]').all()) {
-    await lens.locator('.lens__view').scrollIntoViewIfNeeded();
-    await expect(lens.locator('input[type="range"]')).toHaveValue('180', {
-      timeout: 6000,
-    });
+  const layout = await page.evaluate(() => {
+    const rect = (selector) =>
+      document.querySelector(selector).getBoundingClientRect();
+    const intro = rect('.check__intro');
+    const form = rect('.check__form');
+    const log = rect('.log');
+    return {
+      introCenter: intro.top + intro.height / 2,
+      formCenter: form.top + form.height / 2,
+      introBottom: intro.bottom,
+      formTop: form.top,
+      gap: Math.min(intro.top, form.top) - log.bottom,
+      tunnelHeight: rect('.tunnel').height,
+    };
+  });
+  expect(layout.gap).toBeGreaterThan(60);
+  expect(layout.gap).toBeLessThan(150);
+  expect(layout.tunnelHeight).toBeLessThan(600);
+  if (testInfo.project.name !== 'desktop') {
+    expect(layout.formTop - layout.introBottom).toBeGreaterThan(16);
+    expect(layout.formTop - layout.introBottom).toBeLessThan(40);
+  } else {
+    expect(Math.abs(layout.introCenter - layout.formCenter)).toBeLessThan(1);
   }
 });

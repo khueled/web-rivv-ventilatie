@@ -229,32 +229,18 @@
             </ul>
           </div>
 
-          <figure
-            class="feed"
-            data-feed
-            aria-label="Camerabeeld van een vervuilde ventilator"
-          >
-            <div class="feed__ring" aria-hidden="true"></div>
-            <div class="feed__lens">
+          <figure class="hero__photo">
+            <div class="hero__photo-frame">
               <img
-                class="feed__img"
                 src="/assets/img/waaier-voor-groot.jpg"
                 width="800"
                 height="800"
                 alt="Ventilatorwaaier volledig bedekt met een dikke laag grijsbruin stof en vuil"
               />
-              <div class="feed__fx" aria-hidden="true"></div>
-              <div class="osd" aria-hidden="true">
-                <span class="osd__rec"
-                  ><i></i>REC <b data-timecode>00:00:00</b></span
-                >
-                <span class="osd__zoom">ZOOM <b data-zoom>1.0</b>×</span>
-                <span class="osd__label">VENTILATOR · VOOR</span>
-                <span class="osd__cross"></span>
-              </div>
             </div>
-            <figcaption class="feed__cap">
+            <figcaption class="hero__photo-cap">
               Zo ziet een ventilator eruit die jaren niet is gereinigd.
+              <span>Voorbeeldbeeld</span>
             </figcaption>
           </figure>
         </div>
@@ -262,7 +248,7 @@
 
       <!-- WAAROM -->
       <section class="why" id="waarom" aria-labelledby="why-title">
-        <div class="tunnel" data-tunnel>
+        <div class="tunnel">
           <img
             class="tunnel__img"
             src="/assets/img/kanaal-tunnel.jpg"
@@ -271,10 +257,6 @@
             alt=""
             loading="lazy"
           />
-          <div class="tunnel__osd" aria-hidden="true">
-            <span class="osd__rec"><i></i>REC</span>
-            <span>KANAAL · BINNENKANT</span>
-          </div>
           <div class="wrap tunnel__in">
             <h2 id="why-title" class="h2">
               Slechte ventilatie is <span class="rec">slechte gezondheid.</span>
@@ -405,83 +387,109 @@
           <div class="ba__head">
             <h2 id="ba-title" class="h2">Kijk mee in je kanaal.</h2>
             <p>
-              Draai de borstel rond en zie het verschil tussen een vervuild en
-              een schoon systeem.
+              Van een stoffig kanaal tot een schone waaier. Sleep de schuif en
+              bekijk het verschil.
             </p>
           </div>
+          <p class="ba__note">
+            AI-gegenereerde illustraties, geen foto's van een Rivv-klus.
+          </p>
           <div class="ba__grid">
             <figure class="lens" data-lens>
-              <div class="lens__view">
-                <img
-                  src="/assets/img/kanaal-voor.jpg"
-                  width="1000"
-                  height="1000"
-                  alt="Een dikke laag stof, pluis, bladresten en vuil die uit ventilatiekanalen is gezogen"
-                  loading="lazy"
-                />
-                <img
-                  class="lens__after lens__after--bright"
-                  src="/assets/img/kanaal-na.jpg"
-                  width="1000"
-                  height="1000"
-                  alt="Binnenkant van een ventilatiekanaal na reiniging: schoon, glanzend verzinkt staal"
-                  loading="lazy"
-                />
+              <div class="lens__view" id="duct-comparison">
+                <div class="lens__image">
+                  <img
+                    src="/assets/img/kanaal-vergelijking.jpg"
+                    width="1774"
+                    height="887"
+                    alt="Illustratie van stof en pluis aan de binnenkant van een rond ventilatiekanaal"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="lens__image lens__after">
+                  <img
+                    src="/assets/img/kanaal-vergelijking.jpg"
+                    width="1774"
+                    height="887"
+                    alt="Illustratie van hetzelfde kanaal met schoon verzinkt staal"
+                    loading="lazy"
+                  />
+                </div>
                 <span class="lens__brush" aria-hidden="true"></span>
-                <span class="lens__tag lens__tag--voor" aria-hidden="true"
-                  >VOOR</span
-                >
-                <span class="lens__tag lens__tag--na" aria-hidden="true"
-                  >NA</span
-                >
               </div>
               <figcaption>
                 <span class="lens__title">Ventilatiekanaal</span>
-                <label class="dial">
-                  <span class="sr"
-                    >Schuif om het kanaal na reiniging te zien</span
+                <label class="dial" for="duct-reveal">
+                  <span class="dial__ends"
+                    ><span>Voor</span><span>Na</span></span
                   >
-                  <input type="range" min="0" max="360" value="0" step="1" />
+                  <input
+                    id="duct-reveal"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    aria-label="Vergelijk het ventilatiekanaal voor en na reiniging"
+                    aria-controls="duct-comparison"
+                    disabled
+                  />
+                  <span class="dial__hint"
+                    >Sleep om het verschil te bekijken</span
+                  >
                 </label>
               </figcaption>
             </figure>
-
             <figure class="lens" data-lens>
-              <div class="lens__view">
-                <img
-                  src="/assets/img/waaier-voor.jpg"
-                  width="1000"
-                  height="1000"
-                  alt="Ventilator met schoepen en naaf vol grijs stof"
-                  loading="lazy"
-                />
-                <img
-                  class="lens__after"
-                  src="/assets/img/waaier-na.jpg"
-                  width="1000"
-                  height="1000"
-                  alt="Schone ventilator met gladde zwarte schoepen"
-                  loading="lazy"
-                />
+              <div class="lens__view" id="fan-comparison">
+                <div class="lens__image">
+                  <img
+                    src="/assets/img/waaier-vergelijking.jpg"
+                    width="1774"
+                    height="887"
+                    alt="Illustratie van een centrifugaalwaaier van een ventilatiebox met stof op de schoepen"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="lens__image lens__after">
+                  <img
+                    src="/assets/img/waaier-vergelijking.jpg"
+                    width="1774"
+                    height="887"
+                    alt="Illustratie van dezelfde ventilatorwaaier met schone schoepen"
+                    loading="lazy"
+                  />
+                </div>
                 <span class="lens__brush" aria-hidden="true"></span>
-                <span class="lens__tag lens__tag--voor" aria-hidden="true"
-                  >VOOR</span
-                >
-                <span class="lens__tag lens__tag--na" aria-hidden="true"
-                  >NA</span
-                >
               </div>
               <figcaption>
-                <span class="lens__title">Ventilator (waaier)</span>
-                <label class="dial">
-                  <span class="sr"
-                    >Schuif om de ventilator na reiniging te zien</span
+                <span class="lens__title">Ventilatorwaaier</span>
+                <label class="dial" for="fan-reveal">
+                  <span class="dial__ends"
+                    ><span>Voor</span><span>Na</span></span
                   >
-                  <input type="range" min="0" max="360" value="0" step="1" />
+                  <input
+                    id="fan-reveal"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    aria-label="Vergelijk de ventilatorwaaier voor en na reiniging"
+                    aria-controls="fan-comparison"
+                    disabled
+                  />
+                  <span class="dial__hint"
+                    >Sleep om het verschil te bekijken</span
+                  >
                 </label>
               </figcaption>
             </figure>
           </div>
+          <noscript
+            ><p class="ba__note">
+              Links zie je de vervuilde situatie, rechts de schone. Schakel
+              JavaScript in om de vergelijking te bedienen.
+            </p></noscript
+          >
           <div class="inline-cta">
             <p>Benieuwd wat er in <strong>jouw</strong> kanalen zit?</p>
             <a
@@ -495,34 +503,6 @@
               Plan je reiniging voor €149,99
             </a>
           </div>
-          <p class="ba__credit">
-            Voorbeeldbeelden, geen foto's van een Rivv-klus. Kanaal: Achim
-            Hering,
-            <a
-              href="https://commons.wikimedia.org/wiki/Category:Air_duct_cleaning_in_Canadian_residence"
-              target="_blank"
-              rel="noopener"
-              >Wikimedia Commons</a
-            >. Stoffige ventilator: McZusatz,
-            <a
-              href="https://commons.wikimedia.org/wiki/File:Dusty_computer_cooling_fan.JPG"
-              target="_blank"
-              rel="noopener"
-              >Wikimedia Commons</a
-            >. Beide
-            <a
-              href="https://creativecommons.org/licenses/by-sa/3.0/deed.nl"
-              target="_blank"
-              rel="noopener"
-              >CC BY-SA 3.0</a
-            >, bijgesneden. Schone ventilator:
-            <a
-              href="https://www.pexels.com/photo/6636472/"
-              target="_blank"
-              rel="noopener"
-              >Pexels</a
-            >.
-          </p>
         </div>
       </section>
 

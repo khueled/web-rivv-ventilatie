@@ -1,6 +1,6 @@
 # Rivv Ventilatie
 
-Static Dutch marketing site built with semantic HTML, CSS, and JavaScript modules. Vite provides local development and an optimized production build; no client framework or backend is required. Existing copy, imagery, contact links, structured data, and visual design are preserved.
+Static Dutch marketing site built with semantic HTML, CSS, and JavaScript modules. Vite provides local development and an optimized production build; no client framework or backend is required. The design combines static photography with interactive circular comparisons; the business copy, pricing, contact links, and structured data are preserved.
 
 ## Develop
 
@@ -16,10 +16,10 @@ npm run dev
 ```text
 index.html                 Page content, metadata, structured data, SVG icons
 src/main.js                Browser entry point
-src/features/              Header, camera, comparison, self-check, analytics
-src/utils/                 Shared viewport and WhatsApp helpers
+src/features/              Header, self-check, before/after comparisons, analytics
+src/utils/                 WhatsApp message helper
 src/styles/                Foundations, components, sections, responsive rules
-public/assets/             Original favicon and photographs
+public/assets/             Favicon, photographs, illustrative comparison pairs
 docs/                      Product/design notes and original reference documents
 tests/                     Desktop/mobile browser regression checks
 vercel.json                Explicit Vercel build settings
@@ -39,7 +39,11 @@ npx playwright install chromium
 npm test
 ```
 
-`npm run check` runs all project checks after browser installation. To use an installed Chrome instead, set `PLAYWRIGHT_CHANNEL=chrome` (`$env:PLAYWRIGHT_CHANNEL = 'chrome'` in PowerShell). Browser tests run against the production build on desktop and mobile. The content fixture was captured from the original site before the refactor; update it intentionally only when the client requests content changes.
+`npm run check` runs all project checks after browser installation. To use an installed Chrome instead, set `PLAYWRIGHT_CHANNEL=chrome` (`$env:PLAYWRIGHT_CHANNEL = 'chrome'` in PowerShell). Browser tests run against the production build on desktop and mobile. The original content fixture preserves metadata and contact links; the business copy fixture was captured before the design refinement. Update these intentionally only when the client requests business content changes.
+
+## Photography
+
+The circular gallery uses two AI-generated before/after illustrations of residential ventilation equipment, with a visible disclaimer. Each JPEG contains two square panels: dirty on the left and clean on the right. CSS aligns their crops for the circular reveal. The reveal sweeps once, supports touch and keyboard controls, respects reduced motion, and shows a half-and-half comparison without JavaScript. Real client photographs are an optional future improvement. Original comparison images are archived in `docs/references/images/` and excluded from deployment. See [image asset notes and generation prompts](docs/IMAGE-ASSETS.md).
 
 Use `npm run format` when editing. To inspect the built site locally:
 

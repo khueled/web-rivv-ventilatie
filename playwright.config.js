@@ -17,6 +17,15 @@ export default defineConfig({
       name: 'mobile',
       use: { ...devices['iPhone 13'], defaultBrowserType: 'chromium' },
     },
+    {
+      name: 'small-mobile',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 360, height: 800 },
+        isMobile: true,
+        hasTouch: true,
+      },
+    },
   ],
   webServer: {
     command: 'npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
