@@ -1,0 +1,68 @@
+/* ---------- Type ---------- */
+
+.h2 {
+  font-weight: 800;
+  font-size: clamp(2.125rem, 4.4vw, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+.rec {
+  color: var(--rec);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  --bg: transparent;
+  --fg: var(--bone);
+  --bd: var(--line-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 56px;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--bd);
+  background: var(--bg);
+  color: var(--fg);
+  font: 700 1.0625rem/1 var(--font);
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn--led {
+  --bg: var(--led);
+  --fg: var(--led-ink);
+  --bd: var(--led);
+  box-shadow: 0 8px 28px -10px rgba(124, 255, 178, 0.55);
+}
+.btn--led:hover {
+  --bg: #9bffc6;
+  box-shadow: 0 12px 36px -10px rgba(124, 255, 178, 0.75);
+}
+
+.btn--ghost:hover {
+  --bd: var(--bone);
+  --bg: rgba(233, 236, 234, 0.06);
+}
+
+.btn--ink {
+  --bg: var(--ink-on-bone);
+  --fg: var(--bone);
+  --bd: var(--ink-on-bone);
+}
+.btn--ink:hover {
+  --bg: #22302f;
+}
