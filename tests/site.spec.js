@@ -133,7 +133,7 @@ test('supplied photos use Dutch labels and disclose the interface cleanup', asyn
     );
     await expect(page.locator('.work__figure')).toHaveCount(2);
     await expect(page.locator('.work__label')).toHaveText([
-      'Vóór reiniging',
+      'Voor reiniging',
       'Na reiniging',
     ]);
     await expect(page.locator('.work__note')).toContainText(
