@@ -7,6 +7,8 @@ export function readBusinessContent() {
     '.why__intro',
     '.log',
     '.check',
+    '.work',
+    '.scope',
     '.price',
     '.svc',
     '.how',

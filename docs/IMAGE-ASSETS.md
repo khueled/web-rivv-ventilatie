@@ -1,13 +1,17 @@
-# Comparison image assets
+# Archived comparison image assets
 
-The built-in imagegen tool created the following illustrative assets on 2026-10-08. They are not photographs of Rivv jobs. This is stated above the website gallery.
+The user's clarification restores the original blue architectural house diagram as the opening visual, with animated airflow and fan blades. Previous photographic and generated examples remain archived; the static before/after section uses the supplied screenshots with interface cleanup disclosed. See [current asset sources and edit prompts](PHOTO-EDIT-PROMPTS.md).
 
-- `public/assets/img/kanaal-vergelijking.jpg`: ventilation duct, dirty left / clean right.
-- `public/assets/img/waaier-vergelijking.jpg`: residential centrifugal blower, dirty left / clean right.
+The following notes preserve the history of the removed illustrations.
 
-Each source was generated as a 1774 × 887 PNG diptych. The selected output was encoded as JPEG at quality 88 without altering its composition. CSS crops each square panel into its own layer; both layers share the same downloaded file. Native ranges reveal the clean layer with a conic mask. These files total approximately 0.8 MB.
+The built-in imagegen tool created the following illustrative assets on 2026-10-08. They are not photographs of Rivv jobs. The previous website gallery carried this disclaimer; the gallery is now removed.
 
-For future real photographs, replace each illustration with paired pictures of the same equipment taken from the same angle and with consistent framing. Remove the AI illustration disclaimer when both comparisons actually use real photographs, and identify whose work the photos show accurately.
+- `references/previous-assets/kanaal-vergelijking.jpg`: ventilation duct, dirty left / clean right.
+- `references/previous-assets/waaier-vergelijking.jpg`: residential centrifugal blower, dirty left / clean right.
+
+Each source was generated as a 1774 × 887 PNG diptych. The selected output was encoded as JPEG at quality 88 without altering its composition. The previous gallery cropped the panels into circular layers and used native ranges to reveal the clean layer. These archived files total approximately 0.8 MB.
+
+For a future gallery, use paired photographs of the client's work showing the same equipment from the same angle with consistent framing. Identify whose work the photos show accurately; only restore before/after controls when genuine work photographs are available.
 
 ## Final prompts
 
@@ -27,4 +31,4 @@ The previous comparison photographs are preserved in `docs/references/images/` a
 - Dusty computer fan: McZusatz, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dusty_computer_cooling_fan.JPG), CC BY-SA 3.0, originally cropped by the supplied project.
 - Clean fan: [Pexels photo 6636472](https://www.pexels.com/photo/6636472/), originally cropped by the supplied project.
 
-Existing hero and tunnel images remain unchanged. The original Pexels atmosphere-photo credit remains in the footer.
+The former hero and tunnel images are also archived in `references/previous-assets/`. Their website references and the atmosphere-photo footer credit have been removed.

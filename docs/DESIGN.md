@@ -1,29 +1,29 @@
-# Design — Rivv Ventilatie
+﻿# Design — RIVV Ventilatie
 
-The site presents a ventilation cleaning service through clear typography, a transparent price, relevant images, and direct contact options. Its layout works with the current photographs and comparison illustrations; it does not require future client images to feel complete.
+The 10 October 2026 client brief retains the established section order, typography, icons, checklist, contact actions and native expandable FAQ. The revised design uses white and light grey panels, navy contrast sections and restrained blue accents.
 
 ## Colour and typography
 
-The existing palette and type system remain: camera black `#0A0C0D`, off-white `#E9ECEA`, mint `#7CFFB2` for primary actions, and red `#FF3B2F` for health concerns. Archivo carries headings and body text; JetBrains Mono is reserved for compact brand, contact, and step labels.
+Navy `#0B1930`, white `#FFFFFF`, light grey `#F3F6FA`, logo blue `#0878BD` on light backgrounds and light blue `#83B9FF` on dark backgrounds. Archivo carries headings and body text; JetBrains Mono is reserved for compact labels.
 
-## Photography
+The `light` section theme provides dark text and blue actions on white surfaces. The header, educational section, checklist, contact area and footer use navy with white text. The featured €149.99 package uses a pale blue panel and an understated action badge.
 
-- The hero uses the existing photograph of a dirty ventilation fan in a simple rectangular frame, without scanlines, camera overlays, glow, or moving crops.
-- The duct photograph provides a static background for a shorter health section. A dark overlay maintains text contrast.
-- Two circular comparisons show paired dirty/clean views of a residential ventilation duct and centrifugal fan. The images have clearer details and corresponding framing. They are AI-generated illustrations, with a visible disclaimer above the gallery, and are not evidence of a Rivv job.
-- Original comparison photographs are archived under `references/images/` and are not published. Their provenance is recorded in `IMAGE-ASSETS.md`; existing atmosphere-photo attribution stays in the footer.
-- Real photographs may replace these images later, but the current layout is a complete presentation without them.
+## Imagery
 
-## Spacing and layout
+The original logo is downloaded from the company's public TikTok profile and used unchanged, with CSS framing that trims the surrounding white space. The opening section uses the original architectural blue house diagram, as clarified by the user. The supplied ventilation-box screenshots remain in the before/after section; interface removal is disclosed there.
 
-The maximum content width remains 1240px. Desktop uses a two-column hero and self-check. The self-check introduction is vertically centred beside its longer checklist to avoid an empty area below the heading. The health section's bottom padding and self-check's top padding provide one compact transition, with a subtle background change.
+The diagram shows the house, vents, ducts and mechanical ventilation box, with all labels in Dutch. Its caption identifies it as a schematic. The static before/after section retains the supplied photos with Dutch captions. Neither photograph is attributed to a specific RIVV job.
 
-At 860px and below, the page uses one column, the hero copy precedes the photograph, and the self-check introduction stays directly above its checklist. The fixed contact dock remains available. The price panel, services, booking steps, FAQ, and contact section retain their content and established styling.
+The diagram uses inline SVG and CSS animation. Moving blue dashes follow the actual duct routes toward the box and then outside. Only the fan blades rotate; the house and box stay fixed. The visitor can pause and restart both animations together. They stop outside the viewport or in a hidden tab, and reduced-motion preferences disable them. Without JavaScript the diagram stays still and the unused pause button is hidden. No new raster image or ImageGen asset was needed.
 
-## Interaction
+## Layout and interaction
 
-The circular reveal makes a single sweep when each comparison enters the viewport and its images are ready, then settles at half-and-half. Touch, mouse, or keyboard input immediately takes control and prevents replay. Reduced-motion preferences suppress the sweep, including when changed during animation. Native range controls provide keyboard access and announce the percentage of clean image shown. Without JavaScript, the two halves remain visible and the controls are disabled.
+Content width remains 1240px. The hero, checklist, services, FAQ and contact area use two columns on desktop and one column at 860px and below. Service and FAQ introductions follow the viewport on desktop. The mobile contact dock remains available.
 
-The rest of the page uses restrained hover, focus, and press feedback. There is no recording timer, blinking REC indicator, scroll zoom, or photo rotation. Reduced-motion preferences also disable smooth scrolling and shorten transitions.
+The before/after section fills the full content width with two equally sized photo panels. Their height adapts to viewport height, up to 520px on desktop, and the crops focus on the blower. A compact centred heading and introduction sit above them, with balanced captions and a compact CTA row beneath. Mobile keeps both photos side by side and wraps the CTA beneath its prompt. Photos and CTA remain visible together at six checked desktop, tablet and mobile sizes, including 1280 × 720 and 360 × 800.
 
-The self-check still sends selected symptoms through WhatsApp. Existing CTA analytics hooks remain available without adding a provider.
+All four services have visible prices and prefilled WhatsApp requests. The checklist sends selected answers for advice without assuming cleaning is necessary. Native details elements make the FAQ usable without JavaScript. Reduced-motion preferences disable smooth scrolling and shorten transitions. Existing CTA analytics hooks remain available.
+
+## Verification
+
+The production build and 27 browser checks pass on desktop, iPhone-sized mobile and 360px mobile with installed Chrome. Screenshots were reviewed at 1440, 1100, 768, 390 and 360px widths, with no horizontal overflow.

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="hero__diagram-svg" viewBox="0 0 640 640" fill="none" role="img" aria-labelledby="ventilation-diagram-title ventilation-diagram-desc">
+  <title id="ventilation-diagram-title">Schematische woning met mechanische ventilatie</title>
+  <desc id="ventilation-diagram-desc">Ventielen en kanalen voeren lucht naar de ventilatiebox en vervolgens naar buiten. Bewegende blauwe streepjes tonen de richting van de luchtstroming.</desc>
+  <rect width="640" height="640" rx="20" fill="#f2f6fc"/>
+  <g stroke="#dae4f1" stroke-width="1">
+    <path d="M48 96h544M48 160h544M48 224h544M48 288h544M48 352h544M48 416h544M48 480h544M48 544h544M96 48v544M160 48v544M224 48v544M288 48v544M352 48v544M416 48v544M480 48v544M544 48v544"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#526176">
+    <text x="44" y="47" font-size="11" font-weight="700" letter-spacing="2">MECHANISCHE VENTILATIE</text>
+    <text x="44" y="605" font-size="11" letter-spacing="1">VENTIELEN / KANALEN / VENTILATIEBOX</text>
+  </g>
+  <path class="diagram__house" d="m74 289 237-169 235 169" stroke="#bbcce2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100 276v253h419V276" fill="#fff" stroke="#bbcce2" stroke-width="3"/>
+  <path d="M100 379h419M283 379v150" stroke="#d3deec" stroke-width="3"/>
+  <path d="M137 487h61v42h-61zM332 453h86v76h-86z" fill="#f2f6fc" stroke="#d3deec" stroke-width="2"/>
+  <path d="M376 453v76M332 489h86" stroke="#d3deec" stroke-width="2"/>
+  <path d="M165 349v-43h267v-47M222 483V365h210V259M463 484V259M463 215V102" stroke="#dbe8fa" stroke-width="22" stroke-linejoin="round"/>
+  <path d="M165 349v-43h267v-47M222 483V365h210V259M463 484V259M463 215V102" stroke="#0878bd" stroke-width="2" stroke-linejoin="round"/>
+  <path d="m277 302 7 4-7 4m72 51 7 4-7 4m110 43 4-7 4 7m-8-264 4-7 4 7m-246 302 4-7 4 7" stroke="#0878bd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g class="diagram__flow-lines" stroke="#0878bd" stroke-width="4" stroke-linecap="round" aria-hidden="true">
+    <path class="diagram__flow" pathLength="100" d="M165 349v-43h267v-47" />
+    <path class="diagram__flow" pathLength="100" d="M222 483V365h210V259" />
+    <path class="diagram__flow" pathLength="100" d="M463 484V259" />
+    <path class="diagram__flow diagram__flow--out" pathLength="100" d="M463 215V102" />
+  </g>
+  <rect x="405" y="212" width="88" height="60" rx="9" fill="#0b1930"/>
+  <rect x="413" y="220" width="72" height="44" rx="5" stroke="#83b9ff" stroke-width="1.5"/>
+  <circle cx="449" cy="242" r="15" stroke="#83b9ff" stroke-width="1.5"/>
+  <circle cx="449" cy="242" r="3" fill="#83b9ff"/>
+  <g class="diagram__fan" aria-hidden="true">
+    <path d="M449 239c-1-5 1-9 5-9m-2 13c5 1 7 5 5 8m-10-7c-3 4-7 4-9 1" stroke="#83b9ff" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <g fill="#fff" stroke="#0878bd" stroke-width="2">
+    <ellipse cx="165" cy="353" rx="18" ry="7"/>
+    <ellipse cx="222" cy="487" rx="18" ry="7"/>
+    <ellipse cx="463" cy="487" rx="18" ry="7"/>
+  </g>
+  <g stroke="#a4b9d6" stroke-width="1.5" stroke-linecap="round">
+    <path d="M165 361v14m-10-8-4 6m24-6 4 6M222 498v14m-10-8-4 6m24-6 4 6M463 498v14m-10-8-4 6m24-6 4 6"/>
+    <path d="M449 205v-20h-66M286 306v-25h-38M161 488h-49"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#0b1930">
+    <text x="270" y="188">Ventilatiebox</text>
+    <text x="183" y="285">Kanalen</text>
+    <text x="116" y="472">Ventielen</text>
+    <text x="478" y="105" font-size="11" fill="#526176">Naar buiten</text>
+  </g>
+  <path d="m456 108 7-9 7 9" stroke="#0878bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

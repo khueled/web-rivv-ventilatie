@@ -1,4 +1,4 @@
-# Product
+﻿# Product
 
 <!-- impeccable:product-schema 1 -->
 
@@ -8,57 +8,59 @@ web
 
 ## Stack
 
-Static HTML/CSS/JS with JavaScript modules and a Vite production build. Deploy the generated `dist/` directory to Vercel or another static host.
+Static HTML/CSS/JS with JavaScript modules and a Vite production build. Deploy `dist/` to Vercel or another static host.
 
 ## Users
 
-Dutch homeowners and tenants with mechanical ventilation (ventilatiebox / WTW) who either notice symptoms (stale air, odours, noise, damp, allergy/asthma complaints) or have never had their ventilation cleaned. Often parents, older people, or people with asthma/allergies. Many arrive on a phone, from a flyer, Snapchat or a Google search.
+Dutch homeowners and tenants with mechanical ventilation or WTW installations who notice stale air, odours, noise, damp or visible dust, or do not know when their system was last maintained. Many arrive on a phone from a flyer, Snapchat or a Google search.
 
 ## Product Purpose
 
-Marketing website for Rivv Ventilatie: explain why dirty ventilation is a health problem, show the services and the fixed price, and get the visitor to request an appointment via WhatsApp or phone.
+Explain ventilation maintenance, present four services and their prices, and help visitors request advice, cleaning, maintenance, fault investigation or replacement through WhatsApp or phone.
 
 ## Positioning
 
-Small, hands-on specialist with a fixed, transparent entry price (ventilatiekanalen reinigen vanaf €149,99, all ducts and vents included) and visible before/after results. Part of Jomi J&M Bouw.
+RIVV Ventilatie provides ventilation cleaning, maintenance, airflow measurements, adjustment, fault investigation and replacement. The combination offer is €149.99 for cleaning reachable ducts, existing vents and the mechanical ventilation box. Part of Joma J&M Bouw, as named in the latest client brief.
 
 ## Operating Context
 
-Visitors decide quickly, mostly on mobile. Booking happens by WhatsApp message or a phone call; no online booking system, no contact form.
+Visitors decide quickly, mostly on mobile. Booking happens through WhatsApp or a phone call; no online booking system or contact form.
 
 ## Capabilities and Constraints
 
-Services (from the flyer):
+Four services in the client's requested order:
 
-- Ventilatiekanalen reinigen — thorough cleaning of ducts and vents. €149,99 incl. all ducts and vents, professional equipment, clean/fast/no mess.
-- Ventilatiebox reinigen & onderhoud — quieter running, lower energy use, longer life.
-- Mechanische ventilatie — make sure the system works optimally and efficiently.
-- WTW reiniging & onderhoud — heat recovery systems, cleaner air and maximum efficiency.
-- Ventilatiebox vervangen — supply and install a new, energy-efficient ventilatiebox (quiet & powerful).
+1. Ducts and vents cleaning — €119.99.
+2. Ducts, vents and mechanical ventilation box cleaning and maintenance — action price €149.99. The supplied copy includes operation checks, airflow measurements and adjustment where necessary; confirm the fixed-price inclusions before publication.
+3. Fault investigation — €89.99. Box or WTW-unit replacement — a custom quote. Repairs and parts are discussed in advance.
+4. WTW maintenance — €149.99 for the unit alone, or €229.99 including reachable ducts and vents. The unit-only package excludes duct cleaning.
 
-Service area: heel Nederland.
+Service area: Den Haag and surroundings. Nationwide work on request; postcode and any travel costs are discussed before booking.
+
+VAT status, new vents, filters and other inclusions remain subject to client confirmation. Existing vents are described as cleaned; no new vents or filters are promised.
 
 ## Brand Commitments
 
-- Name: Rivv Ventilatie, wordmark "rivv" with "VENTILATIE" beneath; tagline "Frisse lucht, schone ventilatie".
-- Lines from flyer: "Frisse lucht. Schone ventilatie. Gezonde woning.", "Wist jij dat dit in jouw woning zit?", "Slechte ventilatie = slechte gezondheid", "Wacht niet tot klachten beginnen. Adem schoon. Leef gezond.", "Een schone ventilatie = gezonde lucht".
-- Language: Dutch, informal "je/jouw".
-- Contact: 06 44 83 15 15 (WhatsApp & bellen), rivventilatie@outlook.com, Snapchat: rivventilatie.
-- "Onderdeel van Jomi J&M Bouw".
+- Name: RIVV Ventilatie. Use the original logo downloaded from the company's public TikTok profile.
+- Slogan: “Frisse lucht begint bij goed onderhouden ventilatie.”
+- Language: Dutch, informal “je/jouw”.
+- Palette: blue, white, navy and grey, with the main blue matched to the supplied logo.
+- Contact: 06 44 83 15 15 (WhatsApp and phone), rivventilatie@outlook.com, Snapchat: rivventilatie.
+- Footer: “Onderdeel van Joma J&M Bouw”.
 
 ## Evidence on Hand
 
-- Flyer: `references/Screenshot 2026-10-03 154434.png` (contains before/after photos of duct, box interior, fan — only as part of the flyer image, not as separate files).
-- No testimonials, review scores, customer counts, certifications or years-in-business. Do not fabricate any of these.
-- No separate logo file or photos yet; user must supply real before/after photos for the gallery.
+- Client brief: `references/Website wijzigen.docx`, dated 10 October 2026. This supersedes the previous flyer for copy, prices and service area.
+- The user supplied two socialmedia screenshots of a ventilation box before and after cleaning. ImageGen removes interface overlays, with editing disclosed in the website captions. Do not attribute these to a particular RIVV job without confirmation. The original logo comes from the company's public TikTok profile.
+- No verified testimonials, review scores, customer counts, certifications or years in business. Do not fabricate these.
 
 ## Product Principles
 
-1. Make the invisible visible: the dirt inside ducts is the argument.
-2. One fixed price, stated plainly.
-3. Booking is one tap away (WhatsApp / bellen) at every point on the page.
-4. Honest claims only — health effects stated as on the flyer, no invented proof.
+1. Describe maintenance accurately without guaranteed health, energy-saving or fault-resolution claims.
+2. Keep prices and package boundaries consistent across visible copy, contact messages and search metadata.
+3. Make advice and booking accessible through WhatsApp or phone.
+4. Use real, authorised client photographs when supplied.
 
-## Accessibility & Inclusion
+## Accessibility and Inclusion
 
-Audience includes older people: generous text sizes, strong contrast, large tap targets.
+Use generous text sizes, sufficient contrast, large tap targets, keyboard-accessible links and checkboxes, and a native FAQ. Preserve selected symptoms in the WhatsApp message.
