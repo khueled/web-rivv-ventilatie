@@ -1,20 +1,20 @@
 /* Rivv Ventilatie — shared foundations */
 
 :root {
-  --ink: #0a0c0d;
-  --ink-2: #111517;
-  --ink-3: #1a2023;
-  --line: rgba(233, 236, 234, 0.13);
-  --line-strong: rgba(233, 236, 234, 0.26);
-  --bone: #e9ecea;
-  --bone-2: #dadfdc;
-  --dim: #a5aeab;
-  --rec: #ff3b2f;
-  --led: #7cffb2;
-  --led-deep: #3fd98a;
-  --led-ink: #04210f;
-  --ink-on-bone: #0e1416;
-  --dim-on-bone: #48524f;
+  --ink: #0b1930;
+  --ink-2: #10213b;
+  --ink-3: #192e4c;
+  --line: rgba(226, 236, 250, 0.14);
+  --line-strong: rgba(226, 236, 250, 0.28);
+  --bone: #ffffff;
+  --bone-2: #e2ecfa;
+  --dim: #b4c2d7;
+  --rec: #83b9ff;
+  --led: #83b9ff;
+  --led-deep: #5c9aee;
+  --led-ink: #0b1930;
+  --ink-on-bone: #0b1930;
+  --dim-on-bone: #526176;
 
   --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;

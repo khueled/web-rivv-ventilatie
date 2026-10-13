@@ -49,7 +49,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 .btn--led:hover {
-  --bg: #9bffc6;
+  --bg: #a5cdff;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
@@ -64,5 +64,5 @@
   --bd: var(--ink-on-bone);
 }
 .btn--ink:hover {
-  --bg: #22302f;
+  --bg: #203958;
 }

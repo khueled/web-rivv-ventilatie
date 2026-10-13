@@ -18,15 +18,16 @@ export function initSelfCheck() {
     verdict.classList.toggle('is-alert', symptoms.length > 0);
 
     if (!symptoms.length) {
-      verdict.textContent = 'Vink aan wat je herkent.';
+      verdict.textContent =
+        'Vink aan wat je herkent en ontvang vrijblijvend advies.';
       return;
     }
 
     const count = document.createElement('b');
-    count.textContent = `${symptoms.length} ${symptoms.length === 1 ? 'teken' : 'tekens'}`;
+    count.textContent = `${symptoms.length} ${symptoms.length === 1 ? 'antwoord' : 'antwoorden'}`;
     verdict.replaceChildren(
       count,
-      ' dat je ventilatie aan een reiniging toe is.',
+      ' geselecteerd. Wij kijken graag met je mee.',
     );
   };
 

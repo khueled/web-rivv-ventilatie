@@ -1,6 +1,6 @@
 # Rivv Ventilatie
 
-Static Dutch marketing site built with semantic HTML, CSS, and JavaScript modules. Vite provides local development and an optimized production build; no client framework or backend is required. The design combines static photography with interactive circular comparisons; the business copy, pricing, contact links, and structured data are preserved.
+Static Dutch marketing site built with semantic HTML, CSS, and JavaScript modules. Vite provides local development and an optimized production build; no client framework or backend is required. The October 2026 client update introduces navy, blue and white styling, four revised services, consistent prices, the original RIVV logo and cleaned-up supplied ventilation-box screenshots. See [client changes and outstanding items](docs/CLIENT-CHANGES.md).
 
 ## Develop
 
@@ -19,13 +19,13 @@ src/main.js                Browser entry point
 src/features/              Header, self-check, before/after comparisons, analytics
 src/utils/                 WhatsApp message helper
 src/styles/                Foundations, components, sections, responsive rules
-public/assets/             Favicon, photographs, illustrative comparison pairs
+public/assets/             Original logo and edited supplied photographs
 docs/                      Product/design notes and original reference documents
 tests/                     Desktop/mobile browser regression checks
 vercel.json                Explicit Vercel build settings
 ```
 
-Keep page content in `index.html`. The stylesheet import order preserves the existing cascade. Each feature initializes itself from its own DOM hooks and tolerates missing elements. The site works as a static page without JavaScript; JavaScript enhances its interactions. Analytics events are forwarded only if the client supplies `dataLayer` or `gtag`.
+Keep page content in `index.html`. The stylesheet import order preserves the existing cascade; `client-update.css` adds the light section theme and revised service pricing. Each feature initializes itself from its own DOM hooks and tolerates missing elements. The page, contact links and FAQ work without JavaScript; JavaScript enhances the checklist and header. Analytics events are forwarded only if the client supplies `dataLayer` or `gtag`.
 
 Only `dist/` is published. Reference documents, local tooling, and tests are excluded from deployment.
 
@@ -39,11 +39,11 @@ npx playwright install chromium
 npm test
 ```
 
-`npm run check` runs all project checks after browser installation. To use an installed Chrome instead, set `PLAYWRIGHT_CHANNEL=chrome` (`$env:PLAYWRIGHT_CHANNEL = 'chrome'` in PowerShell). Browser tests run against the production build on desktop and mobile. The original content fixture preserves metadata and contact links; the business copy fixture was captured before the design refinement. Update these intentionally only when the client requests business content changes.
+`npm run check` runs all project checks after browser installation. To use an installed Chrome instead, set `PLAYWRIGHT_CHANNEL=chrome` (`$env:PLAYWRIGHT_CHANNEL = 'chrome'` in PowerShell). Browser tests run against the production build on desktop and mobile. Both content fixtures reflect the 10 October 2026 client brief. Update these intentionally only when the client requests business content changes. Tests cover service prices, prefilled contact requests, careful claims, FAQ metadata, asset loading and use without JavaScript.
 
 ## Photography
 
-The circular gallery uses two AI-generated before/after illustrations of residential ventilation equipment, with a visible disclaimer. Each JPEG contains two square panels: dirty on the left and clean on the right. CSS aligns their crops for the circular reveal. The reveal sweeps once, supports touch and keyboard controls, respects reduced motion, and shows a half-and-half comparison without JavaScript. Real client photographs are an optional future improvement. Original comparison images are archived in `docs/references/images/` and excluded from deployment. See [image asset notes and generation prompts](docs/IMAGE-ASSETS.md).
+The hero uses the original architectural blue house schematic, with animated airflow through the ducts and a rotating fan. Its inline SVG is enhanced with pause/start controls, reduced-motion support and automatic pause outside the viewport. Without JavaScript it remains still. The static Dutch before/after section retains the two supplied ventilation-box screenshots with interface removal disclosed. The original logo comes from the company's public TikTok profile and is used unchanged. See [source and edit notes](docs/PHOTO-EDIT-PROMPTS.md).
 
 Use `npm run format` when editing. To inspect the built site locally:
 
