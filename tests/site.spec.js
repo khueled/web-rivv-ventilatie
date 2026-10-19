@@ -52,10 +52,8 @@ test('preserves approved client copy and contact links and loads every local ass
     'href',
     'mailto:rivventilatie@outlook.com?subject=Afspraak%20ventilatie%20reinigen',
   );
-  await expect(page.locator('.contact a[href*="snapchat"]')).toHaveAttribute(
-    'href',
-    'https://www.snapchat.com/add/rivventilatie',
-  );
+  await expect(page.locator('a[href*="snapchat"]')).toHaveCount(0);
+  await expect(page.locator('.contact__row')).toHaveCount(3);
   for (const image of await page.locator('img').all()) {
     // A continuously rotating image never meets Playwright's stability check.
     // Scroll directly so asset loading can also verify animated layers.
@@ -213,16 +211,16 @@ test('four ordered services have the correct prices and matching WhatsApp reques
     'WTW-reiniging & onderhoud',
   ]);
   const expectedPrices = [
-    ['€ 119,99'],
-    ['€ 149,99'],
-    ['€ 89,99', 'Offerte op maat'],
-    ['€ 149,99', '€ 229,99'],
+    ['€ 119,99 incl. btw'],
+    ['€ 149,99 incl. btw'],
+    ['€ 89,99 incl. btw', 'Offerte op maat'],
+    ['€ 149,99 incl. btw', '€ 229,99 incl. btw'],
   ];
   const expectedMessages = [
     'ventilatiekanalen en ventielen laten reinigen voor € 119,99',
     'mechanische ventilatiebox laten reinigen voor de actieprijs van € 149,99',
     'offerte op maat',
-    'alleen de unit (€ 149,99)',
+    'alleen de unit (€ 149,99 inclusief btw)',
   ];
   for (let i = 0; i < 4; i++) {
     await expect(services.nth(i).locator('.svc__rate strong')).toHaveText(
@@ -286,14 +284,25 @@ test('visible FAQ and search metadata agree with the new prices and careful clai
   ).toEqual(['119.99', '149.99', '89.99', '149.99', '229.99']);
   for (const offer of business.makesOffer.filter((offer) => offer.price)) {
     expect(offer.price).toMatch(/\.99$/);
+    expect(offer.description).toContain('inclusief btw');
+    expect(offer.description).toContain('voorafgaand akkoord');
   }
+  expect(business.areaServed).toEqual({
+    '@type': 'Country',
+    name: 'Nederland',
+  });
+  await expect(page.locator('.hero__copy')).toContainText('inclusief btw');
+  await expect(page.locator('.svc__terms')).toContainText(
+    'alleen na jouw akkoord',
+  );
+  await expect(page.locator('.price__tax')).toHaveText('Inclusief btw');
   await expect(page).toHaveTitle(/€ 149,99/);
   const claims = [...schemas, await page.locator('body').innerText()].join(' ');
   expect(claims).not.toMatch(
     /huisstofmijt|bacteriën|schimmels|energiezuinig|lager energieverbruik|zonder rommel/i,
   );
   await expect(page.locator('.foot')).toContainText(
-    'Den Haag en omgeving. Landelijk op aanvraag.',
+    'Werkzaam in heel Nederland.',
   );
 });
 
@@ -313,7 +322,7 @@ test('pricing, contact links and the FAQ work without JavaScript', async ({
   await expect(page.locator('.svc__row')).toHaveCount(4);
   await expect(page.locator('.price__amount')).toHaveAttribute(
     'aria-label',
-    '149 euro 99',
+    '149 euro 99 inclusief btw',
   );
   const faq = page.locator('.faq__item').nth(6);
   await faq.locator('summary').click();
@@ -344,13 +353,32 @@ test('FAQ, header, analytics, and the mobile dock keep working', async ({
     });
     link
       .querySelector('svg')
-      .dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      .dispatchEvent(
+        new MouseEvent('click', { bubbles: true, cancelable: true }),
+      );
   });
   expect(await page.evaluate(() => window.dataLayer)).toContainEqual({
     event: 'cta_click',
     cta: 'hero-bel',
     type: 'bellen',
   });
+  const companyLink = page.locator('.top a[href="#bedrijfsgegevens"]:visible');
+  await expect(companyLink).toHaveCount(1);
+  await companyLink.click();
+  await expect(page).toHaveURL(/#bedrijfsgegevens$/);
+  await expect(page.locator('#company-title')).toBeInViewport();
+  await expect(page.locator('.company__details')).toContainText(
+    'RIVV Ventilatie',
+  );
+  await expect(page.locator('.company__details')).toContainText(
+    'Joma J&M Bouw',
+  );
+  await expect(page.locator('.company__details')).toContainText(
+    'Heel Nederland',
+  );
+  await expect(page.locator('.company__travel')).toContainText(
+    'alleen na jouw akkoord',
+  );
   if (testInfo.project.name !== 'desktop')
     await expect(page.locator('.dock')).toBeVisible();
   else await expect(page.locator('.dock')).toBeHidden();

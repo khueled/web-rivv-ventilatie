@@ -13,6 +13,7 @@ export function readBusinessContent() {
     '.svc',
     '.how',
     '.faq',
+    '.company',
     '.close',
     '.foot',
     '.dock',
