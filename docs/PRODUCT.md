@@ -12,7 +12,7 @@ Static HTML/CSS/JS with JavaScript modules and a Vite production build. Deploy `
 
 ## Users
 
-Dutch homeowners and tenants with mechanical ventilation or WTW installations who notice stale air, odours, noise, damp or visible dust, or do not know when their system was last maintained. Many arrive on a phone from a flyer, Snapchat or a Google search.
+Dutch homeowners and tenants with mechanical ventilation or WTW installations who notice stale air, odours, noise, damp or visible dust, or do not know when their system was last maintained. Many arrive on a phone from a flyer or a Google search.
 
 ## Product Purpose
 
@@ -35,9 +35,9 @@ Four services in the client's requested order:
 3. Fault investigation — €89.99. Box or WTW-unit replacement — a custom quote. Repairs and parts are discussed in advance.
 4. WTW maintenance — €149.99 for the unit alone, or €229.99 including reachable ducts and vents. The unit-only package excludes duct cleaning.
 
-Service area: Den Haag and surroundings. Nationwide work on request; postcode and any travel costs are discussed before booking.
+Service area: all of the Netherlands. All displayed rates include VAT. Extra charges for repairs, parts or travel apply only after prior customer agreement.
 
-VAT status, new vents, filters and other inclusions remain subject to client confirmation. Existing vents are described as cleaned; no new vents or filters are promised.
+New vents, filters and other inclusions remain subject to client confirmation. Existing vents are described as cleaned; no new vents or filters are promised.
 
 ## Brand Commitments
 
@@ -45,8 +45,9 @@ VAT status, new vents, filters and other inclusions remain subject to client con
 - Slogan: “Frisse lucht begint bij goed onderhouden ventilatie.”
 - Language: Dutch, informal “je/jouw”.
 - Palette: blue, white, navy and grey, with the main blue matched to the supplied logo.
-- Contact: 06 44 83 15 15 (WhatsApp and phone), rivventilatie@outlook.com, Snapchat: rivventilatie.
+- Contact: 06 44 83 15 15 (WhatsApp and phone), rivventilatie@outlook.com.
 - Footer: “Onderdeel van Joma J&M Bouw”.
+- A company details section lists the company name, parent organisation, nationwide service area, phone/WhatsApp and email. The header and footer link to it; the header link stays visible on mobile. Travel costs are discussed in advance and charged only after agreement. No address, KvK number or VAT identification number has been supplied.
 
 ## Evidence on Hand
 

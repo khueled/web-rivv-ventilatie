@@ -6,6 +6,7 @@ The user's latest clarification restores the original architectural blue house d
 
 ## Completed
 
+- Added a company details section with the known company and contact information, a header link (also visible on mobile), a footer link and an explicit advance-agreement notice for travel costs. The user has no address, KvK number or VAT identification number to add.
 - Replaced the mint/red palette with navy, white, grey and blue; kept the established section sequence, typography, icons, buttons and FAQ interactions.
 - Updated the hero, educational section, four information blocks, six checklist items, four services, third booking step, all eight FAQ answers, contact section and footer.
 - Set prices to €119.99 for ducts and vents, €149.99 for ducts and mechanical ventilation box, €89.99 for fault investigation, €149.99 for WTW unit only and €229.99 for WTW unit plus ducts. Replacement uses a custom quote.
@@ -14,16 +15,17 @@ The user's latest clarification restores the original architectural blue house d
 - Removed unsupported strong health, energy and fault-resolution claims.
 - Restored the architectural blue house schematic in the hero, with animated airflow toward the ventilation box and outside, a rotating fan, a pause/start button, reduced-motion support and automatic pause outside the viewport. The supplied screenshots remain in the static Dutch before/after section with an editing note.
 - Downloaded the original RIVV logo from the public TikTok profile and used it unchanged in the header, footer and favicon. Blue accents now follow the logo's blue. See [photo and logo notes](PHOTO-EDIT-PROMPTS.md).
-- Kept phone, WhatsApp, email and Snapchat contacts. Changed the service area to Den Haag and surroundings with nationwide work on request.
+- Kept phone, WhatsApp and email contacts. Removed the social contact link and its unused icon. Service area is now all of the Netherlands.
+- Confirmed by the user on 19 October 2026: all displayed prices include VAT; extra costs apply only after prior agreement. Added this to the hero, action panel, service prices, FAQ, WhatsApp requests and search metadata.
 - Updated regression fixtures intentionally to reflect the client brief.
 - Made the before/after layout fill the content width with large equal photo panels, a compact centred heading, balanced captions and a compact CTA beneath. Photo height adapts to viewport height and the crops focus on the blower. Both photos remain side by side on mobile and fit together with the CTA. Verified at six viewport sizes without horizontal overflow or contact-dock overlap.
 
 ## Client items needed before publication
 
 1. Confirm whether prices include VAT, then add the agreed label to the hero offer, action panel, service rates and pricing FAQ. VAT treatment has not been invented.
-2. Confirm whether €149.99 includes airflow measurement and adjustment. The local draft follows the supplied publication copy, which includes both. Confirm the same scope wherever mentioned, including replacement and WTW maintenance.
-3. Confirm whether any new vents, vent caps or filters are included. The draft promises cleaning of existing vents only and makes no promise of replacement filters.
-4. Confirm any material, repair and travel charges. The draft says repairs, parts and travel costs are discussed in advance.
+1. Confirm whether €149.99 includes airflow measurement and adjustment. The local draft follows the supplied publication copy, which includes both. Confirm the same scope wherever mentioned, including replacement and WTW maintenance.
+1. Confirm whether any new vents, vent caps or filters are included. The draft promises cleaning of existing vents only and makes no promise of replacement filters.
+1. No fixed travel, material or repair surcharges have been supplied. Do not invent amounts; the confirmed policy requires prior agreement for any extra costs.
 
 The supplied socialmedia screenshots are used as supplied imagery rather than attributed to a specific RIVV job. Original screenshots and edited masters are archived outside the deployment. Higher-resolution original photos or a vector logo can replace these assets later, but are not required to complete this update.
 
