@@ -376,6 +376,10 @@ test('FAQ, header, analytics, and the mobile dock keep working', async ({
   await expect(page.locator('.company__details')).toContainText(
     'Heel Nederland',
   );
+  await expect(page.locator('.company__details')).toContainText('27259803');
+  await expect(page.locator('.company__details')).toContainText(
+    'NL 8120.81.900.B01',
+  );
   await expect(page.locator('.company__travel')).toContainText(
     'alleen na jouw akkoord',
   );
